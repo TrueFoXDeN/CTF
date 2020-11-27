@@ -97,3 +97,30 @@ Daraufhin gibt uns die Seite das Passwort für Natas8 aus.
 Zugriff:	[http://natas8.natas.labs.overthewire.org](http://natas8.natas.labs.overthewire.org)
 Username: `natas8`
 Passwort: `DBfUBfqQG69KvJvJ1iAbMoIpwSNQ9bWe`
+
+Im Sourcecode sieht man folgenden Code:
+
+```php
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+
+function encodeSecret($secret) {
+    return bin2hex(strrev(base64_encode($secret)));
+}
+```
+
+Um auf die Variable `$secret` zu kommen, muss man die Funktionen umdrehen. 
+
+```php
+$encodedSecret = "3d3d516343746d4d6d6c315669563362";
+
+function decodeSecret($encodedSecret) {
+    return base64_decode(strrev(hex2bin($secret)));
+}
+```
+
+# Natas 9
+
+Zugriff:	[http://natas8.natas.labs.overthewire.org](http://natas8.natas.labs.overthewire.org)
+Username: `natas8`
+Passwort: `W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl`
+
