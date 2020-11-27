@@ -141,3 +141,17 @@ if($key != "") {
 Wir können mit dem input `$key` einen modifizierten bash Befehl ausführen.  Alle Passwörter sind im Ordner `/etc/natas_webpass` gespeichert. Über grep können wir auch in der Datei suchen.
 
 Input: `[A-z] /etc/natas_webpass/natas11`
+
+# Natas 10
+
+Zugriff:	[http://natas10.natas.labs.overthewire.org](http://natas10.natas.labs.overthewire.org)
+Username: `natas10`
+Passwort: `nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu`
+
+Einige Zeichen sind nicht erlaubt. Man muss nur den Input anpassen: `. /etc/natas_webpass/natas11`
+
+# Natas 11
+
+Zugriff:	[http://natas11.natas.labs.overthewire.org](http://natas11.natas.labs.overthewire.org)
+Username: `natas11`
+Passwort: `U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK`
