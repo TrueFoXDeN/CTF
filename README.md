@@ -2,6 +2,6 @@
 
 ## Chapters:
 
-1. [Bandit](Bandit.md)
-2. [Natas](Natas.md)
+1. [Bandit](OverTheWire/Wargames/Bandit.md)
+2. [Natas](OverTheWire/Wargames/Natas.md)
 
