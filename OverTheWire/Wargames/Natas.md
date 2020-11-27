@@ -15,7 +15,7 @@ Das Passwort für Natas2 lässt sich wie folgt auslesen: Mit `F12` den Debugger 
 # Natas 2
 Zugriff:	[http://natas2.natas.labs.overthewire.org](http://natas2.natas.labs.overthewire.org)
 Username: `natas2`
-Passwort: `
+Passwort: `ZluruAthQk7Q2MqmDeTiUij2ZvWy2mBi`
 
 Im Quelltext der Seite befindet sich ein il een oe it `iesien neeben tSmi ist klrdas sich ter er dresse natas.natas.labs.overthewire.org/fies in aerzeichnis t.
 Beim Aufrufen des Verzeichnisses finde i neen erxel.pnateiaheine tate mit de Naen user.tt. n dieer indet sich das asswUser.zxzort r eel 
