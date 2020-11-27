@@ -120,7 +120,24 @@ function decodeSecret($encodedSecret) {
 
 # Natas 9
 
-Zugriff:	[http://natas8.natas.labs.overthewire.org](http://natas8.natas.labs.overthewire.org)
-Username: `natas8`
+Zugriff:	[http://natas9.natas.labs.overthewire.org](http://natas9.natas.labs.overthewire.org)
+Username: `natas9`
 Passwort: `W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl`
 
+Im Sourcecode sieht man folgenden Code:
+
+```php
+$key = "";
+
+if(array_key_exists("needle", $_REQUEST)) {
+    $key = $_REQUEST["needle"];
+}
+
+if($key != "") {
+    passthru("grep -i $key dictionary.txt");
+}
+```
+
+Wir können mit dem input `$key` einen modifizierten bash Befehl ausführen.  Alle Passwörter sind im Ordner `/etc/natas_webpass` gespeichert. Über grep können wir auch in der Datei suchen.
+
+Input: `[A-z] /etc/natas_webpass/natas11`
