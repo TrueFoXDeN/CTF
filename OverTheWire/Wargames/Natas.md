@@ -1,4 +1,5 @@
 # Natas 0
+
 Zugriff:	[http://natas0.natas.labs.overthewire.org](http://natas0.natas.labs.overthewire.org)
 Username: `natas0`
 Passwort: `natas0`
@@ -155,3 +156,56 @@ Einige Zeichen sind nicht erlaubt. Man muss nur den Input anpassen: `. /etc/nata
 Zugriff:	[http://natas11.natas.labs.overthewire.org](http://natas11.natas.labs.overthewire.org)
 Username: `natas11`
 Passwort: `U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK`
+
+Nachbau der XOR Funktion. 
+out = in ⊕ key ist äquivalent zu key = out ⊕ in
+
+```php
+$in = json_encode(array( "showpassword"=>"no", "bgcolor"=>"#ffffff"));
+
+function xor_encrypt($in) {
+    $key = base64_decode("ClVLIh4ASCsCBE8lAxMacFMZV2hdVVotEhhUJQNVAmhSEV4sFxFeaAw%3D");
+    $text = $in;
+    $outText = '';
+
+    // Iterate through each character
+    for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+echo xor_encrypt($in);
+```
+
+```php
+>> qw8J
+```
+
+```php
+$in = json_encode(array( "showpassword"=>"yes", "bgcolor"=>"#ffffff"));
+
+function xor_encrypt($in) {
+    $key = 'qw8J';
+    $text = $in;
+    $outText = '';
+
+    // Iterate through each character
+    for($i=0;$i<strlen($text);$i++) {
+    $outText .= $text[$i] ^ $key[$i % strlen($key)];
+    }
+
+    return $outText;
+}
+
+echo base64_encode(xor_encrypt($in));
+```
+
+Cookie mit `showpassword=yes`: `ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4sFxFeLFMK`
+
+# Natas 12
+
+Zugriff:	[http://natas12.natas.labs.overthewire.org](http://natas12.natas.labs.overthewire.org)
+Username: `natas12`
+Passwort: `EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3`
