@@ -235,3 +235,12 @@ FF D8 FF 3C 3F 0D 0A 65 63 68 6F 28 73 68 65 6C 6C 5F 65 78 65 63 28 27 63 61 74
 Zugriff:	[http://natas14.natas.labs.overthewire.org](http://natas14.natas.labs.overthewire.org)
 Username: `natas14`
 Passwort: `Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1  `
+
+Passwort über SQL Injection auslesbar. Input im Passwortfeld: `" or "1" = "1` 
+Im Get kann debug aktiviert werden, z.B. über OWASP ZAP. 
+
+# Natas 15
+
+Zugriff:	[http://natas15.natas.labs.overthewire.org](http://natas15.natas.labs.overthewire.org)
+Username: `natas15`
+Passwort: `AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J  `
