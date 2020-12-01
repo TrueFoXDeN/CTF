@@ -505,3 +505,13 @@ print(r2.text)
 Zugriff:	[http://natas22.natas.labs.overthewire.org](http://natas22.natas.labs.overthewire.org)
 Username: `natas22`
 Passwort: `chG9fbe1Tq2eWVMgjYYD1MsfIvN461kJ`
+
+Beim Request  `?revelio` anhängen und mit OWASP ZAP Traffic abfangen. 
+
+# Natas 23
+
+Zugriff:	[http://natas23.natas.labs.overthewire.org](http://natas23.natas.labs.overthewire.org)
+Username: `natas23`
+Passwort: `D0vlad33nQF0Hz2EP255TP5wSW9ZsRSE`
+
+ 
