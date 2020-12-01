@@ -514,4 +514,10 @@ Zugriff:	[http://natas23.natas.labs.overthewire.org](http://natas23.natas.labs.o
 Username: `natas23`
 Passwort: `D0vlad33nQF0Hz2EP255TP5wSW9ZsRSE`
 
- 
+Durch die Abfrage, ob `$_REQUEST["passwd"]` größer 10 ist, wird der String in `$_REQUEST["passwd"]` zu einem Integer konvertiert. Da Buchstaben nicht konvertiert werden können, wird nur `0` zurückgegeben. Beginnt der übergebene String jedoch mit einer Zahl, wird diese Zahl zu einem Integer konvertiert und die Konvertierung wird erst danach abgebrochen. `11iloveyou` wird zu `11`. Somit wird der Vergleich `($_REQUEST["passwd"]>10)` wahr und das Passwort wird ausgegeben. 
+
+# Natas 24
+
+Zugriff:	[http://natas24.natas.labs.overthewire.org](http://natas24.natas.labs.overthewire.org)
+Username: `natas24`
+Passwort: OsRmXFguozKpTZZ5X14zNO43379LZveg
